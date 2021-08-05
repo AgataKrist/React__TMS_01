@@ -77,7 +77,6 @@ const objectData = {
 };
 
 // 3.  Создать новый массив пользователей, где объект пользователя должен содержать только id и поле, отвечающее за имя пользователя, которое должно содержать имя и фамилию.
-
 const newUsersArr = users.reduce((acc, user) => {
   const obj = {
     id: user.id,
@@ -86,3 +85,9 @@ const newUsersArr = users.reduce((acc, user) => {
   acc.push(obj);
   return acc;
 }, []);
+
+//4.  Создать массив из emails по алфавиту.
+//prettier-ignore
+const filterEmails = users
+                        .map((user) => user.email)
+                        .sort()
