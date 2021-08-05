@@ -97,3 +97,24 @@ const filterEmails = users
 let sortUsers = users
   .filter((user) => user.age < 40)
   .sort((a, b) => a.age - b.age);
+
+//6.  Создать объект, где ключ, это первая буква фамилии, а значение - массив из фамилий пользователей начинающихся на эту букву. Объект должен состоять только из ключей существующих фамилий в этом массиве. Например в этом массиве нет фамилии с букву **Y,** а значит и такого поля не должно быть в объекте.
+// Пример того, что надо получить, когда пользователи имеют следующие фамилии `Yasenko`, `Felton` , `Ford`, `Ferdinand`:
+// `{
+//   y: ['Yasenko'],
+//   f: ['Felton', 'Ford', 'Ferdinand'
+// }`
+
+// const count = fruitBasket.reduce((tally, fruit) => {
+//   tally[fruit] = (tally[fruit] || 0) + 1;
+//   return tally;
+// }, {});
+
+const arr = users.map((user) => user.last_name);
+const a = users.reduce((acc, user) => {
+  const value = arr.filter((u) => {
+    return u[0] === user.last_name[0] && u;
+  });
+  acc[user.last_name[0]] = value;
+  return acc;
+}, {});
