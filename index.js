@@ -91,3 +91,9 @@ const newUsersArr = users.reduce((acc, user) => {
 const filterEmails = users
                         .map((user) => user.email)
                         .sort()
+
+//5.  Создать массив юзеров, где они отсортированы по возрасту по возрастанию и все пользователи младше 40 лет.
+
+let sortUsers = users
+  .filter((user) => user.age < 40)
+  .sort((a, b) => a.age - b.age);
