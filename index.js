@@ -75,3 +75,14 @@ const objectData = {
   OlderThen_40: olderThen(40),
   OlderThen_18: olderThen(18),
 };
+
+// 3.  Создать новый массив пользователей, где объект пользователя должен содержать только id и поле, отвечающее за имя пользователя, которое должно содержать имя и фамилию.
+
+const newUsersArr = users.reduce((acc, user) => {
+  const obj = {
+    id: user.id,
+    name: `${user.first_name} ${user.last_name}`,
+  };
+  acc.push(obj);
+  return acc;
+}, []);
