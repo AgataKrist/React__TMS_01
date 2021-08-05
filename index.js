@@ -49,6 +49,29 @@ const users = [
   },
 ];
 
+// 1.  Получить строку c именами и фамилиями всех пользователей через запятую.
 const string = users
   .map((user) => `${user.first_name} ${user.last_name}`)
   .toString();
+
+//  Получить объект, где были бы **a)** данные о среднем возрасте пользователей, **b)** количество пользователей старше **30, c)** количество пользователей старше 40**, d)** количество пользователей старше 18 \*\*\*\*
+const averageAge = () => {
+  return (
+    users.reduce((acc, user) => {
+      return user.age + acc;
+    }, 0) / users.length
+  );
+};
+
+const olderThen = (age) => {
+  let current = 0;
+  users.map((user) => (user.age > age ? current++ : null));
+  return current;
+};
+
+const objectData = {
+  averageAge: averageAge(),
+  OlderThen_30: olderThen(30),
+  OlderThen_40: olderThen(40),
+  OlderThen_18: olderThen(18),
+};
